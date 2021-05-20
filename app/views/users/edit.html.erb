@@ -1,0 +1,15 @@
+<%= link_to 'User Record', user_path(@user) %>
+
+<%= form_with model: @user, method: "patch" do |form| %>
+  <%= form.label :username %>:
+  <%= form.text_field :username, placeholder: "Username..." %>
+  <%= form.label :email %>:
+  <%= form.email_field :email %>
+  <%= form.label :password %>:
+  <%= form.password_field :password %>
+  <%= form.submit %>
+<% end %>
+
+<% if @user.errors.any? %>
+  <%= @user.errors.full_messages %>
+<% end %>

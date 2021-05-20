@@ -1,0 +1,29 @@
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :username %>:
+  <%= form.text_field :username, placeholder: "Username..." %>
+  <%= form.label :email %>:
+  <%= form.email_field :email %>
+  <%= form.label :password %>:
+  <%= form.password_field :password %>
+  <%= form.submit %>
+<% end %>
+
+<% if @user.errors.any? %>
+  <%= @user.errors.full_messages %>
+<% end %>
+
+<!--
+
+ <form accept-charset="UTF-8" action="/users" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="user[username]" name="username"><br><br>
+  <label for="email">Email:</label>
+  <input type="text" id="user[email]" name="email"><br><br>
+  <label for="password">Password:</label>
+  <input type="text" id="user[password]" name="password"><br><br>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="Submit">
+</form> 
+
+-->
